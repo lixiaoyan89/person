@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        body{background: #000;}
+        .gallery{height:500px;width:980px;position: absolute;top:0;right:0;bottom:0;left:0;margin:auto;}
+        .item{height:100px;width:196px;position: absolute;transition: transform 1.5s;background: #fff;}
+        .pic{width: 100%;height: 100%;transition: transform 1.5s;}
+    </style>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script>
+        $(function(){
+            var galley=$('.gallery');
+                 //初始化
+            init();
+            picAll()
+            function init(){
+                for(var i=0;i<25;i++){
+                    var x=i%5;
+
+                    var y=parseInt(i/5);
+                    $("<div class=item><div class='pic'></div> </div>")
+                            .css({"left":x*196+"px ","top":y*100+"px"})
+                            .appendTo(galley);
+
+                }
+            }
+            function picAll(){//小图
+
+                $(".pic").each(function(index){
+                    var x=index%5;
+                    var y=parseInt(index/5);
+                    var random_v=Math.random()*60-30+"deg";
+                    $(this).css({
+                        "background-image":"url(images/"+(index+1)+".jpg)",
+                    "background-size":"cover",
+                        "transform":"scale(0.95,0.90)"
+                    }).parent().css({
+                     "transform":"translate("+(x-2)*50+"px,"+(y-2)*50+"px) rotate("+random_v+") "
+                    })
+
+                })
+
+            }
+            function changpic(index){//大图
+                $(".pic").each(function(i){
+                    var x=i%5;
+                    var y=parseInt(i/5);
+                    $(this).css({
+                        "background-image":"url(images/"+(index+1)+".jpg)",
+                        "background-size":"auto",
+                        "background-position":x*(-196)+"px "+y*(-100)+"px",
+                        "transform":"scale(1,1)"
+                    }).parent().css({
+                        "transform":"translate(0px,0px) rotate(0deg)"
+
+
+                    });
+                })
+            }
+            var bol=true;//bol值为真的时候调用大图，为假的时候调用小图
+            $('.item').click(function(){
+                var index=$(this).index();
+                if(bol){
+                    changpic(index);
+                }
+                else{
+                    picAll();
+                }
+                bol=!bol;
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="gallery">
+
+</div>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="js/script.js"></script>
+	<link rel="stylesheet" href="css/mystyle.css">
+</head>
+<body>
+	
+	<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">OA办公系统</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;管理首页 <span class="sr-only">(current)</span></a></li>
+        <li><a href="user.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+        <li><a href="text.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;内容管理</a></li>
+        <li><a href="label.html"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;标签管理</a></li>
+        <li><a href="email.html"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;我的邮箱<span class="badge ac">10</span></a></li>
+       <!--  <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li> -->
+      </ul>
+      <!-- <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form> -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><div class="mar_10"><img src="images/icon.jpg" class="img-circle img-responsive"></div></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;前台首页</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;个人中心</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="alert alert-info alert-dismissible" role="alert">
+				<button type="button" class="close close_img" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h3>系统消息</h3>
+				<p>您有100条未审核的消息</p>
+				<p>
+					<button class="btn btn-info">立即处理</button>
+					<button class="btn btn-default">稍后处理</button>
+				</p>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="alert alert-danger alert-dismissable" role="alert">
+				<button type="button" class="close close_img1" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h3>系统消息</h3>
+				<p>您有100条未审核的消息</p>
+				<p>
+					<button class="btn btn-danger">立即处理</button>
+					<button class="btn btn-default">稍后处理</button>
+				</p>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="alert alert-success alert-dismissible" role="alert">
+				<button type="button" class="close close_img2" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h3>系统消息</h3>
+				<p>您有100条未审核的消息</p>
+				<p>
+					<button class="btn btn-success">立即处理</button>
+					<button class="btn btn-default">稍后处理</button>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">个人名片</div>
+				<div class="panel-body">
+					<div class="col-xs-6">
+						<img src="images/2.png" class="img-responsive img-rounded">
+					</div>
+			   	 	<div class="col-xs-6">
+			   	 		<p>部门:IT部门</p>
+				   	 	<p>职位:前端开发工程师</p>
+				   	 	<p>专业技能:网站维护,移动端开发</p>
+			   	 	</div>
+			   	 	<div class="bottom_hei">
+			   	 		<span class="label label-default">Default</span>
+						<span class="label label-primary">Primary</span>
+						<span class="label label-success">Success</span>
+						<span class="label label-info">Info</span>
+						<span class="label label-warning">Warning</span>
+			   	 	</div>
+			   	 	
+
+					<div class="panel panel-default panel_inner">
+						<div class="panel-heading">我的任务</div>
+				 		 <div class="panel-body">
+				    		<ul class="list-group list_group_color">
+							  <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Cras justo odio<small class="pull-right">2017.8.8</small></li>
+							  <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Dapibus ac facilisis in <small class="pull-right">2017.8.8</small></li>
+							  <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Morbi leo risus<small class="pull-right">2017.8.8</small></li>
+							  <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Porta ac consectetur ac<small class="pull-right">2017.8.8</small></li>
+							  <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Vestibulum at eros<small class="pull-right">2017.8.8</small></li>
+							</ul>
+				 		 </div>
+				  		<div class="panel-footer"></div>
+					</div>
+			  	</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+			  <ol class="carousel-indicators">
+			    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			  </ol>
+
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner" role="listbox">
+			    <div class="item active">
+			      <img src="images/01.jpg">
+			      <div class="carousel-caption">
+			        ...
+			      </div>
+			    </div>
+			    <div class="item">
+			      <img src="images/02.jpg">
+			      <div class="carousel-caption"> </div>
+			    </div>
+			    <div class="item">
+			      <img src="images/03.jpg">
+			      <div class="carousel-caption"> </div>
+			    </div>
+			    
+			  </div>
+
+			  <!-- Controls -->
+			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>
+	</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-6 col-xs-12">
+			<div class="panel panel-default">
+			  <div class="panel-heading">网站数据统计</div>
+			  <div class="panel-body">
+			  		<table class="table">
+			  			<thead>
+			  				<tr>
+			  					<th>项目统计</th>
+			  					<th>昨日</th>
+			  					<th>今日</th>
+			  				</tr>
+			  			</thead>
+			  			<tbody>
+			  				<tr>
+			  					<td>网站统计</td>
+			  					<td>200</td>
+			  					<td>400</td>
+			  				</tr>
+			  				<tr>
+			  					<td>网站统计</td>
+			  					<td>200</td>
+			  					<td>400</td>
+			  				</tr>
+			  				<tr>
+			  					<td>网站统计</td>
+			  					<td>200</td>
+			  					<td>400</td>
+			  				</tr>
+			  				<tr>
+			  					<td>网站统计</td>
+			  					<td>200</td>
+			  					<td>400</td>
+			  				</tr>
+			  			</tbody>
+			  		</table>
+			  </div>
+			</div>
+		</div>
+		<div class="col-md-6 col-xs-12">
+			<div class="panel panel-default">
+			  <div class="panel-heading">Panel heading without title</div>
+			  	<ul class="list-group list_group_color">
+				  <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Cras justo odio <span class="pull-right">2018.7.7</span></li>
+				  <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Dapibus ac facilisis in<span class="pull-right">2018.7.7</span></li>
+				  <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Morbi leo risus<span class="pull-right">2018.7.7</span></li>
+				  <li class="list-group-item"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Porta ac consectetur ac<span class="pull-right">2018.7.7</span></li>
+				  <li class="list-group-item"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Vestibulum at eros<span class="pull-right">2018.7.7</span></li>
+				</ul>
+			</div>
+	</div>
+	</div>
+
+		
+
+	<div class="row">
+		<div class="col-md-6 col-xs-12">
+			<div class="panel panel-default">
+				  <div class="panel-heading">今日访客统计</div>
+				  <div class="panel-body" id="main_img">
+						<canvas id="canvas"></canvas>
+				  </div>
+			</div>
+		</div>
+		<div class="col-md-6 col-xs-12">
+			<div class="panel panel-default">
+			  <div class="panel-heading">Panel heading without title</div>
+			  <div class="panel-body">
+			  <p>40% Complete (success)</p>
+			    <div class="progress">
+
+			  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+
+			    <span class="sr-only">40% Complete (success)</span>
+			  </div>
+			</div>
+			<p>40% Complete (success)</p>
+			<div class="progress">
+			  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+			    <span class="sr-only">20% Complete</span>
+			  </div>
+			</div>
+			<p>40% Complete (success)</p>
+			<div class="progress">
+			  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+			    <span class="sr-only">60% Complete (warning)</span>
+			  </div>
+			</div>
+			<p>40% Complete (success)</p>
+			<div class="progress">
+			  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+			    <span class="sr-only">80% Complete (danger)</span>
+			  </div>
+			</div>
+
+		</div>
+			  </div>
+			</div>
+			
+	</div>
+	
+	<div class="row">
+
+		<div class="panel panel-default">
+			  <div class="panel-heading">Panel heading without title</div>
+			  <div class="panel-body">
+			    	<div class="row">
+			    		<div class="col-sm-7">
+							<div class="media well">
+							  <div class="media-left">
+							    <a href="#">
+							      <img class="media-object" src="images/bottom_icon_03.jpg" alt="...">
+							    </a>
+							  </div>
+							  <div class="media-body">
+							    <h4 class="media-heading">小星星</h4>
+							    <p>我的电脑出问题了，技术大哥</p>
+							  </div>
+							</div>
+							<div class="media well">
+							  
+							  <div class="media-body text-right">
+							    <h4 class="media-heading">技术大哥</h4>
+							    <p>收到，小星星，正在赶来...</p>
+							  </div>
+							  <div class="media-right">
+							    <a href="#">
+							      <img class="media-object" src="images/bottom_icon_07.jpg" alt="...">
+							    </a>
+							  </div>
+							</div>
+							<div class="media well">
+							  <div class="media-left">
+							    <a href="#">
+							      <img class="media-object" src="images/bottom_icon_03.jpg" alt="...">
+							    </a>
+							  </div>
+							  <div class="media-body">
+							    <h4 class="media-heading">小星星</h4>
+							    <p>我的电脑出问题了，技术大哥</p>
+							  </div>
+							</div>
+							<div class="media well">
+							  
+							  <div class="media-body text-right">
+							    <h4 class="media-heading">技术大哥</h4>
+							    <p>收到，小星星，正在赶来...</p>
+							  </div>
+							  <div class="media-right">
+							    <a href="#">
+							      <img class="media-object" src="images/bottom_icon_07.jpg" alt="...">
+							    </a>
+							  </div>
+							</div>
+
+							
+						</div>
+						<div class="col-sm-5">
+							<form >
+								<div class="form-group">
+									<label for="msg">输入留言内容</label>
+									<textarea id="msg" rows="5"  class="form-control" ></textarea>
+									
+								</div>
+								<button class="btn btn-default liu_btn" >留言</button>
+							</form>
+							<div class="panel panel-default">
+							  <div class="panel-heading">团队联系手册</div>
+							  <div class="panel-body">
+							  	<ul class="list-group">
+								  <li class="list-group-item">站长：<span class="glyphicon glyphicon-inbox"></span>232131</li>
+								  <li class="list-group-item">技术：<span class="glyphicon glyphicon-inbox"></span>232131
+								  <li class="list-group-item">推广：<span class="glyphicon glyphicon-inbox"></span>232131</li>
+								  <li class="list-group-item">客服：<span class="glyphicon glyphicon-inbox"></span>232131</li>
+								</ul>
+							  </div>
+							</div>
+
+						</div>
+			    	</div>
+			  </div>
+		</div>
+		
+		
+	</div>
+	<div class="row text-center">
+		<p>联系方式123123</p>
+	</div>
+
+</div>
+
+</body>
+</html>
+
+<script>
+	var closeImg=document.getElementsByClassName('close_img')[0]
+	var closeImg1=document.getElementsByClassName('close_img1')[0]
+	var closeImg2=document.getElementsByClassName('close_img2')[0]
+	// var myChart=echarts.init(document.getElementById('main_img'));
+
+	
+	closeImg.onclick=function(){
+		var ParentBox=this.parentNode.parentNode;
+		ParentBox=ParentBox.className += " " + 'visible-md';
+	}
+	closeImg1.onclick=function(){
+		var ParentBox1=this.parentNode.parentNode;
+		ParentBox1=ParentBox1.className += " " + 'visible-md';
+	}
+	closeImg2.onclick=function(){
+		var ParentBox2=this.parentNode.parentNode;
+		ParentBox2=ParentBox2.className += " " + 'visible-md';
+	}
+
+// 	var option = {
+    
+//     tooltip : {
+//         trigger: 'axis',
+//     },
+//     grid: {
+//         left: '3%',
+//         right: '4%',
+//         bottom: '2%',
+//         containLabel: true
+//     },
+//     xAxis : [
+//         {
+//             type : 'category',
+//             boundaryGap : false,
+//             data : ['周一','周二','周三','周四','周五','周六','周日']
+//         }
+//     ],
+//     yAxis : [
+//         {
+//             type : 'value'
+//         }
+//     ],
+//     series : [
+//         {
+//             type:'line',
+//             areaStyle: {normal: {}},
+//             data:[100, 232,420,390, 600, 590, 500]
+//         },
+//         {
+//             type:'line',
+//             areaStyle: {normal: {}},
+//             data:[320, 470, 780, 820, 1000, 900, 1000]
+//         },
+//         {
+//             type:'line',
+//             label: {
+//                 normal: {
+//                     show: true,
+//                     position: 'top'
+//                 }
+//             },
+//             areaStyle: {normal: {}},
+//             data:[320, 570, 650, 700, 900, 910, 1000]
+//         }
+//     ]
+// };
+// 	myChart.setOption(option);
+</script>

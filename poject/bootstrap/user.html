@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/mystyle.css">
+</head>
+<body>
+	
+	<nav class="navbar navbar-default">
+  		<div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+	   		<div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">OA办公系统</a>
+	    	</div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;管理首页 <span class="sr-only">(current)</span></a></li>
+	        <li class="active"><a href="user.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+	        <li><a href="text.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;内容管理</a></li>
+	        <li><a href="label.html"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;标签管理</a></li>
+	        <li><a href="email.html"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;我的邮箱<span class="badge ac">10</span></a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><div class="mar_10"><img src="images/icon.jpg" class="img-circle img-responsive"></div></li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员<span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;前台首页</a></li>
+	            <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;个人中心</a></li>
+	            <li><a href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+	            <li><a href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+	            <li><a href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	    	</div><!-- /.navbar-collapse -->
+  		</div><!-- /.container-fluid -->
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="list-group">
+				  <a href="user.html" class="list-group-item active">用户管理</a>
+				  <a href="user_seach.html" class="list-group-item">用户搜索</a>
+				  
+				  <a href="##" class="list-group-item" data-toggle="modal" data-target="#myModal">添加用户</a>
+
+				  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">添加用户</h4>
+					      </div>
+					      <div class="modal-body">
+					        <form>
+					        	<div class="form-group">
+									<label for="user">用户名</label>
+									<input type="text" id="user" placeholder="请输入用户名" class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="password">用户密码</label>
+									<input type="text" id="password" placeholder="请输入用户密码" class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="password1">确认用户密码</label>
+									<input type="text" id="password1" placeholder="请确认用户密码" class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="emial">用户邮箱</label>
+									<input type="emial" id="emial" placeholder="请输入用户邮箱" class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="member">所属用户组</label>
+									<select id="member" class="form-control">
+										<option>限制会员</option>
+										<option>限制会员</option>
+										<option>限制会员</option>
+										<option>限制会员</option>
+										<option>限制会员</option>
+									</select>
+								</div>
+					        </form>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					        <button type="button" class="btn btn-primary">提交</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-10">
+				<div class="page-header">
+					<h4>用户管理</h4>
+				</div>
+				<ul class="nav nav-tabs">
+				  <li role="presentation" class="active"><a href="user.html">用户列表</a></li>
+				  <li role="presentation"><a href="user_seach.html">用户搜索</a></li>
+				  <li role="presentation"><a href="#"  data-toggle="modal" data-target="#myModal">添加用户</a></li>
+
+
+				</ul>
+				<table class="table mar10">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>用户名</th>
+							<th>邮箱</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>2</td>
+							<td>小星</td>
+							<td>1252552@qq.com</td>
+							<td>
+								<div class="btn-group">
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    操作 <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu">
+								    <li><a href="#">删除</a></li>
+								    <li><a href="#">编辑</a></li>
+								    <li><a href="#">添加</a></li>
+								    <li role="separator" class="divider"></li>
+								    <li><a href="#">Separated link</a></li>
+								  </ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>小星</td>
+							<td>1252552@qq.com</td>
+							<td>
+								<div class="btn-group">
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    操作 <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu">
+								    <li><a href="#">删除</a></li>
+								    <li><a href="#">编辑</a></li>
+								    <li><a href="#">添加</a></li>
+								    <li role="separator" class="divider"></li>
+								    <li><a href="#">Separated link</a></li>
+								  </ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>小星</td>
+							<td>1252552@qq.com</td>
+							<td>
+								<div class="btn-group">
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    操作 <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu">
+								    <li><a href="#">删除</a></li>
+								    <li><a href="#">编辑</a></li>
+								    <li><a href="#">添加</a></li>
+								    <li role="separator" class="divider"></li>
+								    <li><a href="#">Separated link</a></li>
+								  </ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>小星</td>
+							<td>1252552@qq.com</td>
+							<td>
+								<div class="btn-group">
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    操作 <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu">
+								    <li><a href="#">删除</a></li>
+								    <li><a href="#">编辑</a></li>
+								    <li><a href="#">添加</a></li>
+								    <li role="separator" class="divider"></li>
+								    <li><a href="#">Separated link</a></li>
+								  </ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>小星</td>
+							<td>1252552@qq.com</td>
+							<td>
+								<div class="btn-group">
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    操作 <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu">
+								    <li><a href="#">删除</a></li>
+								    <li><a href="#">编辑</a></li>
+								    <li><a href="#">添加</a></li>
+								    <li role="separator" class="divider"></li>
+								    <li><a href="#">Separated link</a></li>
+								  </ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>小星</td>
+							<td>1252552@qq.com</td>
+							<td>
+								<div class="btn-group">
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    操作 <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu">
+								    <li><a href="#">删除</a></li>
+								    <li><a href="#">编辑</a></li>
+								    <li><a href="#">添加</a></li>
+								    <li role="separator" class="divider"></li>
+								    <li><a href="#">Separated link</a></li>
+								  </ul>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<nav aria-label="Page navigation">
+				  <ul class="pagination pull-right">
+				    <li>
+				      <a href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    <li class="active"><a href="#">1</a></li>
+				    <li><a href="#">2</a></li>
+				    <li><a href="#">3</a></li>
+				    <li><a href="#">4</a></li>
+				    <li><a href="#">5</a></li>
+				    <li>
+				      <a href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				  </ul>
+				</nav>
+			</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script>
+	var closeImg=document.getElementsByClassName('close_img')[0]
+	var closeImg1=document.getElementsByClassName('close_img1')[0]
+	var closeImg2=document.getElementsByClassName('close_img2')[0]
+	// var myChart=echarts.init(document.getElementById('main_img'));
+
+	
+	closeImg.onclick=function(){
+		var ParentBox=this.parentNode.parentNode;
+		ParentBox=ParentBox.className += " " + 'visible-md';
+	}
+	closeImg1.onclick=function(){
+		var ParentBox1=this.parentNode.parentNode;
+		ParentBox1=ParentBox1.className += " " + 'visible-md';
+	}
+	closeImg2.onclick=function(){
+		var ParentBox2=this.parentNode.parentNode;
+		ParentBox2=ParentBox2.className += " " + 'visible-md';
+	}
+
+// 	var option = {
+    
+//     tooltip : {
+//         trigger: 'axis',
+//     },
+//     grid: {
+//         left: '3%',
+//         right: '4%',
+//         bottom: '2%',
+//         containLabel: true
+//     },
+//     xAxis : [
+//         {
+//             type : 'category',
+//             boundaryGap : false,
+//             data : ['周一','周二','周三','周四','周五','周六','周日']
+//         }
+//     ],
+//     yAxis : [
+//         {
+//             type : 'value'
+//         }
+//     ],
+//     series : [
+//         {
+//             type:'line',
+//             areaStyle: {normal: {}},
+//             data:[100, 232,420,390, 600, 590, 500]
+//         },
+//         {
+//             type:'line',
+//             areaStyle: {normal: {}},
+//             data:[320, 470, 780, 820, 1000, 900, 1000]
+//         },
+//         {
+//             type:'line',
+//             label: {
+//                 normal: {
+//                     show: true,
+//                     position: 'top'
+//                 }
+//             },
+//             areaStyle: {normal: {}},
+//             data:[320, 570, 650, 700, 900, 910, 1000]
+//         }
+//     ]
+// };
+// 	myChart.setOption(option);
+</script>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#btn,#btn2{position: absolute;left:200px;top:200px;padding:10px;}
+		#btn2{display: none}
+	</style>
+</head>
+<body>
+	<canvas id="cvs" width="630" height="630"></canvas>
+	<button  id="btn">开始游戏</button>
+	<button id="btn2">游戏结束</button>
+</body>
+</html>
+<script type="text/javascript">
+	var cvs=document.getElementById('cvs');
+	var ctx=cvs.getContext("2d");
+
+
+	var total=25;
+	var size=20;
+	var randomFill=5;//随机食物的个数
+
+	var snakeLen=[{x:10,y:10},{x:10,y:11},{x:10,y:12}];
+
+	var num=38;
+	var timer;
+
+	var btn=document.getElementById("btn");
+	var btn2=document.getElementById("btn2");
+	btn.onclick=function(){
+		 timer=setInterval(init,200)
+		 btn.style.display="none"
+	}
+	
+
+	// var rodomX=;
+	// var rodomY=
+	//console.log(rodomX,rodomY)
+	var randomArray=[];
+	//绘制画布
+	
+	function drawSrceen(){
+		for(var i=0;i<total;i++){
+			for(var j=0;j<total;j++){
+				ctx.strokeStyle="#666";
+				ctx.strokeRect(i*size,j*size,size,size);
+			}
+		}
+	}
+		random()
+		
+
+
+	//创建随机数组
+	function random(){
+		for(var i=0;i<randomFill;i++){
+			var json = {"ax":parseInt(Math.random()*total),"ay":parseInt(Math.random()*total)};
+			randomArray.push(json)
+		}
+		
+	}
+	
+//渲染随机食物rodomArray数组
+	function renderApple(){
+		for(var i=0;i<randomFill;i++){
+			ctx.fillStyle="gray";
+			ctx.fillRect(randomArray[i].ax*size,randomArray[i].ay*size,size,size);
+			
+		}
+	}
+
+
+	//画蛇
+	
+	function drawSnake(){
+		for(var a=0;a<snakeLen.length;a++){
+			ctx.fillStyle="pink";
+			ctx.fillRect(snakeLen[a].x*size,snakeLen[a].y*size,size,size)
+		}
+	}
+	
+//蛇移动函数
+	function move(){
+
+		for(var i=snakeLen.length-1;i>0;i--){
+			snakeLen[i].y=snakeLen[i-1].y
+			snakeLen[i].x=snakeLen[i-1].x
+		}
+
+		switch(num){
+			case 37:snakeLen[0].x--;break;
+			case 38:snakeLen[0].y--;break;
+			case 39:snakeLen[0].x++;break;
+			case 40:snakeLen[0].y++;break;
+
+		}
+//蛇头碰到边界的判断
+		if(snakeLen[0].x<0){
+			snakeLen[0].x=total-1;
+		}else if(snakeLen[0].y<0){
+			snakeLen[0].y=total-1;
+		}else if(snakeLen[0].x==total){
+			snakeLen[0].x=0;
+		}else if(snakeLen[0].y==total){
+			snakeLen[0].y=0;
+		}
+		//蛇头碰到食物的判断
+		for(var j=0;j<randomArray.length;j++){
+			if(snakeLen[0].x==randomArray[j].ax&&snakeLen[0].y==randomArray[j].ay){
+				//将蛇头碰到的食物坐标存入一个json对象，再在食物数组randomArray中删除这个坐标
+				var json={"x":randomArray[j].ax,"y":randomArray[j].ay};
+				randomArray.splice(j,1);
+				random()
+				//再将碰到的食物的坐标存入蛇身的数组中snakeLen
+				snakeLen.push(json);
+				return;
+			}
+		}
+
+		//判断蛇头是否碰到蛇身，如果碰到，游戏结束
+		
+		for(var a=1;a<snakeLen.length;a++){
+			if(snakeLen[0].x==snakeLen[a].x && snakeLen[0].y==snakeLen[a].y){
+				clearInterval(timer)
+				btn2.style.display="block"
+			}
+		}
+		
+
+		
+	}
+	init();
+	function init(){
+		
+		ctx.clearRect(0,0,cvs.width,cvs.height)
+		drawSrceen();
+		drawSnake();
+		move();
+		renderApple();
+
+	}
+// console.log(snakeLen)
+
+	
+	//方向键的判断
+	document.onkeydown=function(ev){
+		switch(ev.keyCode){
+			case 37:num=37;break;
+			case 38:num=38;break;
+			case 39:num=39;break;
+			case 40:num=40;break;
+		}
+	}
+
+</script>
